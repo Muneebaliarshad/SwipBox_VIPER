@@ -96,6 +96,7 @@ class MoviesListViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: MovieListCollectionViewCell.identifier, for: indexPath) as! MovieListCollectionViewCell
         cell.setData(presenter.moviesData[indexPath.item])
+        cell.accessibilityIdentifier = "cell_\(indexPath.item)"
         return cell
     }
     

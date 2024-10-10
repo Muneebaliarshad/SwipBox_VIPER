@@ -11,10 +11,10 @@ class MovieListCollectionViewCell: CollectionViewCell {
     
     //MARK: - UIElements
     let dataView = CustomView(backgroundColor: .white, cornerRadius: 10.scaledToScreen)
-    let contentImageView = CustomImageView(imageName: "Plceholder")
-    let persentageLabel = CustomLabel(text: "0%", textColor: .white, font: .systemFont(ofSize: 8.scaledToScreen, weight: .medium), alignment: .center)
-    let titleLabel = CustomLabel(text: "Movie Name", textColor: .black, font: .systemFont(ofSize: 12.scaledToScreen, weight: .heavy))
-    let dateLabel = CustomLabel(text: "Movie Date", textColor: .gray, font: .systemFont(ofSize: 10.scaledToScreen, weight: .semibold))
+    let contentImageView = CustomImageView(imageName: "Plceholder", accessibilityText: "contentImageView")
+    let persentageLabel = CustomLabel(text: "0%", textColor: .white, font: .systemFont(ofSize: 8.scaledToScreen, weight: .medium), alignment: .center, accessibilityText: "persentageLabel")
+    let titleLabel = CustomLabel(text: "Movie Name", textColor: .black, font: .systemFont(ofSize: 12.scaledToScreen, weight: .heavy), accessibilityText: "movieTitleLabel")
+    let dateLabel = CustomLabel(text: "Movie Date", textColor: .gray, font: .systemFont(ofSize: 10.scaledToScreen, weight: .semibold), accessibilityText: "dateLabel")
     
     
     //MARK: - Nib Methods

@@ -14,10 +14,11 @@ class CustomLabel: UILabel {
                   textColor: UIColor = .black,
                   font: UIFont = .systemFont(ofSize: 14),
                   alignment: NSTextAlignment = .natural,
-                  numberOfLines: Int = 1) {
+                  numberOfLines: Int = 1,
+                  accessibilityText: String? = nil) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        configureLabel(text: text, textColor: textColor, font: font, alignment: alignment, numberOfLines: numberOfLines)
+        configureLabel(text: text, textColor: textColor, font: font, alignment: alignment, numberOfLines: numberOfLines, accessibilityText: accessibilityText)
     }
     
     required init?(coder: NSCoder) {
@@ -29,11 +30,13 @@ class CustomLabel: UILabel {
                                 textColor: UIColor,
                                 font: UIFont,
                                 alignment: NSTextAlignment,
-                                numberOfLines: Int) {
+                                numberOfLines: Int,
+                                accessibilityText: String?) {
         self.text = text
         self.textColor = textColor
         self.textAlignment = alignment
         self.numberOfLines = numberOfLines
+        self.accessibilityIdentifier = accessibilityText ?? text
         
         // Handle font scaling and safely unwrap the font
         if let scaledFont = UIFont(name: font.fontName, size: font.pointSize.scaledToScreen) {

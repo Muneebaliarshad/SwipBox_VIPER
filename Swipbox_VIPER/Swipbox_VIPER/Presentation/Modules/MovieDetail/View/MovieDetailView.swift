@@ -10,18 +10,18 @@ import UIKit
 
 class MovieDetailView: CustomImageView {
     //MARK: - UIElements
-    let bannerImageView = CustomImageView(imageName: "Plceholder")
+    let bannerImageView = CustomImageView(imageName: "Plceholder", accessibilityText: "bannerImageView")
     let shadowView = CustomView(backgroundColor: .black.withAlphaComponent(0.7 ))
-    let dataImageView = CustomImageView(imageName: "Plceholder", cornerRadius: 10.scaledToScreen)
-    let titleLabel = CustomLabel(text: "Movie Name", textColor: .label, font: .systemFont(ofSize: 15.scaledToScreen, weight: .heavy))
-    let yearLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 13.scaledToScreen, weight: .regular))
-    let persentageLabel = CustomLabel(text: "0%", textColor: .systemBackground, font: .systemFont(ofSize: 10.scaledToScreen, weight: .medium), alignment: .center)
+    let dataImageView = CustomImageView(imageName: "Plceholder", cornerRadius: 10.scaledToScreen, accessibilityText: "dataImageView")
+    let titleLabel = CustomLabel(text: "Movie Name", textColor: .label, font: .systemFont(ofSize: 15.scaledToScreen, weight: .heavy), accessibilityText: "titleLabel")
+    let yearLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 13.scaledToScreen, weight: .regular), accessibilityText: "yearLabel")
+    let persentageLabel = CustomLabel(text: "0%", textColor: .systemBackground, font: .systemFont(ofSize: 10.scaledToScreen, weight: .medium), alignment: .center, accessibilityText: "persentageLabel")
     let overviewTitleLabel = CustomLabel(text: "Overview: ", textColor: .label, font: .systemFont(ofSize: 15.scaledToScreen, weight: .bold))
-    let overviewLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 15.scaledToScreen, weight: .regular), numberOfLines: 0)
+    let overviewLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 15.scaledToScreen, weight: .regular), numberOfLines: 0, accessibilityText: "overviewLabel")
     let budgetTitleLabel = CustomLabel(text: "Budget: ", textColor: .label, font: .systemFont(ofSize: 15.scaledToScreen, weight: .bold))
-    let budgetLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 15.scaledToScreen, weight: .regular))
+    let budgetLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 15.scaledToScreen, weight: .regular), accessibilityText: "budgetLabel")
     let revenueTitleLabel = CustomLabel(text: "Revenue: ", textColor: .label, font: .systemFont(ofSize: 15.scaledToScreen, weight: .bold))
-    let revenueLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 15.scaledToScreen, weight: .regular))
+    let revenueLabel = CustomLabel(text: "0000", textColor: .systemGray, font: .systemFont(ofSize: 15.scaledToScreen, weight: .regular), accessibilityText: "revenueLabel")
     
     //MARK: - Setup Methods
     func setView() {

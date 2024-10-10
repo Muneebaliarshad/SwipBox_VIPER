@@ -13,7 +13,7 @@ protocol SplashViewProtocol: BaseViewProtocol {
 class SplashViewController: UIViewController, SplashViewProtocol {
     
     //MARK: - UIElements
-    let logoImageView = CustomImageView(imageName: "Logo", contentMode: .scaleAspectFit)
+    let logoImageView = CustomImageView(imageName: "Logo", contentMode: .scaleAspectFit, accessibilityText: "logoImageView")
     
     
     //MARK: - Variables

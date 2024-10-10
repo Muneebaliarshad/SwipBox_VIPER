@@ -13,10 +13,11 @@ class CustomImageView: UIImageView {
     required init(imageName: String = "Placeholder",
                   cornerRadius: CGFloat = 0.0,
                   backgroundColor: UIColor = .clear,
-                  contentMode: UIView.ContentMode = .scaleAspectFill) {
+                  contentMode: UIView.ContentMode = .scaleAspectFill,
+                  accessibilityText: String? = nil) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        configureImageView(imageName: imageName, cornerRadius: cornerRadius, backgroundColor: backgroundColor, contentMode: contentMode)
+        configureImageView(imageName: imageName, cornerRadius: cornerRadius, backgroundColor: backgroundColor, contentMode: contentMode, accessibilityText: accessibilityText)
     }
     
     required init?(coder: NSCoder) {
@@ -27,7 +28,8 @@ class CustomImageView: UIImageView {
     private func configureImageView(imageName: String,
                                     cornerRadius: CGFloat,
                                     backgroundColor: UIColor,
-                                    contentMode: UIView.ContentMode) {
+                                    contentMode: UIView.ContentMode,
+                                    accessibilityText: String?) {
         if let loadedImage = UIImage(named: imageName) {
             self.image = loadedImage
         } else {
@@ -38,5 +40,6 @@ class CustomImageView: UIImageView {
         self.layer.cornerRadius = cornerRadius
         self.contentMode = contentMode
         self.clipsToBounds = true
+        self.accessibilityIdentifier = accessibilityText ?? imageName
     }
 }
