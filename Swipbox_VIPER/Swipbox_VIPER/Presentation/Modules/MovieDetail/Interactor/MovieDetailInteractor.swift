@@ -23,8 +23,13 @@ class MovieDetailInteractor: MovieDetailInteractorProtocol {
     }
     
     func getItemDetail() {
-        repositry?.fetchMovieData(movieID: movieID ?? 0, completion: { data, error in
-            self.presenter?.didFetchItemDetail(data, error: error)
+        repositry?.fetchMovieData(movieID: movieID ?? 0, completion: { result in
+            switch result {
+            case .success(let moviesDetails):
+                self.presenter?.didFetchItemDetail(moviesDetails, error: nil)
+            case .failure(let error):
+                self.presenter?.didFetchItemDetail(nil, error: ErrorResponse.serializationError(error))
+            }
         })
     }
 }

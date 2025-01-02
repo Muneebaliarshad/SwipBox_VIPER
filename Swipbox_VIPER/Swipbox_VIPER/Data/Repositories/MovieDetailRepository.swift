@@ -8,21 +8,21 @@
 import Foundation
 
 protocol MovieDetailRepositoryProtocol: AnyObject {
-    func fetchMovieData(movieID: Int, completion: @escaping (MovieDetail?, ErrorResponse?) -> Void)
+    func fetchMovieData(movieID: Int, completion: @escaping (Result<MovieDetail, Error>) -> Void)
 }
 
 final class MovieDetailRepository: BaseRepositry, MovieDetailRepositoryProtocol {
     
-    func fetchMovieData(movieID: Int, completion: @escaping (MovieDetail?, ErrorResponse?) -> Void) {
+    func fetchMovieData(movieID: Int, completion: @escaping (Result<MovieDetail, Error>) -> Void) {
         if !Reachability.isConnectedToNetwork() {
-            completion(nil, ErrorResponse.noInternetConnection)
+            completion(.failure(ErrorResponse.noInternetConnection))
         } else {
             self.fetchMoviesDataInternet(movieID: movieID) { result in
                 switch result {
                 case .success(let moviesDetails):
-                    completion(moviesDetails, nil)
+                    completion(.success(moviesDetails))
                 case .failure(let error):
-                    completion(nil, ErrorResponse.serializationError(error))
+                    completion(.failure(ErrorResponse.serializationError(error)))
                 }
             }
         }
